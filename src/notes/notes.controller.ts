@@ -17,6 +17,10 @@ export class notesController {
     const notes = this.notesService.getnotes();
     return { notes };
   }
+  @Post('delete')
+  delnotes(@Body('inputid') prodId: string): any {
+    const returnId = this.notesService.removeNotes(prodId);
+  }
 
   @Get(':id')
   getnote(@Param('id') prodId: string) {
